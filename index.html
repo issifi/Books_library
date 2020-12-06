@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Library</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1 id="title">Books Library</h1>
+    <!-- the new book button to creat a new book -->
+    <div>
+        <button id="btn-new" class="button">+ New Book</button>
+    </div>
+    <!-- popup form for the book information -->
+    <div id="popup-form">
+        <form action="" class="form-container">
+            <button type="button" id="btn-exit" class="button btnExit">X</button>
+            <div><label for="title">Title:</label> <input type="text" name="" id="book-title" placeholder="Title"></div>
+            <div><label for="author">Author:</label> <input type="text" name="" id="book-author"placeholder="Author"></div>
+            <div><label for="pages">Pages:</label> <input type="text" name="" id="book-pages"placeholder="Pages"></div>
+            <div><label for="read">Read:</label><input type="checkbox" name="read" id="book-read"></div>
+            <button type="button" id="btn-add" class="button">Add</button>
+        </form>
+    </div>
+
+    <div id="display">
+        <!-- <div class="book">
+            <h2>this is a long title book</h2>
+            <h2>author</h2>
+            <button class="button">Read</button>
+            <button class="btn-delete button">Delete</button>
+        </div> -->
+    </div>
+    <script src="main.js"></script>
+</body>
+</html>

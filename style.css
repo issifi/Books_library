@@ -1,0 +1,98 @@
+/* over all styling */
+body{
+    background-image: linear-gradient(35deg, rgb(76, 0, 255), rgb(182, 36, 170), rgb(182, 36, 170), rgb(38, 92, 241));
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    height: 90vh;
+    /* background-attachment: fixed; */
+}
+/* top heading */
+
+#title{
+    text-align: center;
+    font-size: 2rem;
+}
+.button{
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    display: block;
+    margin: 10px;
+}
+.button:hover{
+    cursor: pointer;
+}
+#btn-new{
+    margin: 0 auto;
+    width: 150px;
+    display: block;
+}
+/* pop up form */
+#popup-form{
+    background-color: hsla(0, 0%, 0%, 0.61);
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    display: none;
+}
+.form-container{
+    position: relative;
+    margin: 0 auto;
+    margin-top: 150px;
+    width: 400px;
+    max-width: 90vw;
+    padding: 10px;
+    border-radius: 5px;
+    /* for debbagin */
+    background-color: aqua;
+}
+.form-container>div{
+    display: block;
+    margin: 10px 0;
+}
+.form-container label{
+    width: 60px;
+    display: inline-block;
+}
+#btn-exit{
+    position: absolute;
+    top: 5px;
+    right: 5px;
+}
+#btn-exit:hover{
+    background-color: rgb(224, 46, 46);
+}
+#btn-add:hover{
+    background-color: rgb(11, 142, 66);
+    color: #f4f4f4;
+}
+/* display */
+#display{
+    margin: 20px 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit ,305px);
+    grid-gap: 2px;
+    justify-content: center;
+    
+}
+.book{
+    border: 1px solid #000;
+    border-radius: 5px;
+    background-color: #b9b8b8;
+    width: 300px;
+    text-align: center;
+}
+.book>button{
+    width: 150px;
+    margin: 10px auto;
+
+}
+.btn-delete:hover{
+    background-color: rgb(224, 46, 46);
+}
+
+/* js class styling */
