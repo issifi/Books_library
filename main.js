@@ -7,6 +7,7 @@ const display = document.querySelector('#display');
 
 
 // adding event to the buttons
+// the new book button popup form
 newBtn.addEventListener('click',()=>{
     popupForm.style.display = 'block';
 })
@@ -19,9 +20,16 @@ addBookBtn.addEventListener('click',()=>{
     if(addBook()==false) return;
     popupForm.style.display ='none'
 })
-
-const myLibrary = [];
-
+function setData() {
+    localStorage.setItem("Library", JSON.stringify(myLibrary))
+}
+function getData() {
+    myLibrary = JSON.parse(localStorage.getItem("Library"))
+}
+let myLibrary = [];
+if(localStorage.Library){
+    getData()
+}
 function addBook() {
     const title = document.querySelector('#book-title').value;
     const author = document.querySelector('#book-author').value;
@@ -40,6 +48,7 @@ function addBook() {
     }
     const newBook = new Book( title, author, pages, readBook)
     myLibrary.push(newBook)
+    setData()
     displayBook(newBook);
 }
 function Book( title, author, pages, read){
@@ -73,6 +82,7 @@ function displayBook(book){
             readBtn.style.backgroundColor = 'blue'
         }
         console.log('togel button')
+        setData()
     })
     deletBtn.innerText = 'delete';
     div.setAttribute('class','book')
@@ -80,8 +90,22 @@ function displayBook(book){
     deletBtn.addEventListener('click', (e)=>{
         e.target.parentElement.remove();
         myLibrary.splice(myLibrary.indexOf(book),1)
+        setData()
     })
     div.appendChild(readBtn)
     div.appendChild(deletBtn);
     display.appendChild(div)
+}
+
+const book1 = new Book ('aaa', 'bbbb', '120', true);
+const book2 = new Book ('ccc', 'dddd', '50', false);
+const book3 = new Book ('eee', 'ffff', '60', true);
+const book4 = new Book ('ggg', 'kkkk', '200', false);
+// myLibrary.push(book1)
+// myLibrary.push(book2)
+// myLibrary.push(book3)
+// myLibrary.push(book4)
+
+for(let i=0;i<myLibrary.length;i++){
+    displayBook(myLibrary[i])
 }
