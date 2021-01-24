@@ -12,23 +12,22 @@ newBtn.addEventListener('click',()=>{
     popupForm.style.display = 'block';
 })
 closeForm.addEventListener('click',()=>{
-    popupForm.style.display ='none'
+    popupForm.style.display ='none';
 })
 
 addBookBtn.addEventListener('click',()=>{    
-    // addBook();
     if(addBook()==false) return;
-    popupForm.style.display ='none'
+    popupForm.style.display ='none';
 })
 function setData() {
-    localStorage.setItem("Library", JSON.stringify(myLibrary))
+    localStorage.setItem("Library", JSON.stringify(myLibrary));
 }
 function getData() {
-    myLibrary = JSON.parse(localStorage.getItem("Library"))
+    myLibrary = JSON.parse(localStorage.getItem("Library"));
 }
 let myLibrary = [];
 if(localStorage.Library){
-    getData()
+    getData();
 }
 function addBook() {
     const title = document.querySelector('#book-title').value;
@@ -37,8 +36,8 @@ function addBook() {
     const read = document.querySelector('#book-read');
     
     if(title== false|| author==false || pages==false){
-        alert('enter you book information')
-        return false // stop event from runing
+        alert('enter you book information');
+        return false ;// stop event from runing
     }
     let readBook ;
     if(read.checked == true){
@@ -46,18 +45,12 @@ function addBook() {
     }else if (read.checked == false){
         readBook = false;
     }
-    const newBook = new Book( title, author, pages, readBook)
-    myLibrary.push(newBook)
-    setData()
+    const newBook = new Book( title, author, pages, readBook);
+    myLibrary.push(newBook);
+    setData();
     displayBook(newBook);
 }
 // the book class constructor
-// function Book( title, author, pages, read){
-//     this.title = title;
-    // this.author = author;
-    // this.pages = pages;
-    // this.read = read;
-// }
 class Book {
     constructor(title, author, pages, read){
         this.title = title;
@@ -67,54 +60,44 @@ class Book {
     }
 }
 function displayBook(book){
-    const div = document.createElement('div')
-    const readBtn = document.createElement('button')
-    const deletBtn = document.createElement('button')
+    const div = document.createElement('div');
+    const readBtn = document.createElement('button');
+    const deletBtn = document.createElement('button');
     readBtn.setAttribute('class', 'button');
-    deletBtn.setAttribute('class', 'button btn-delete')
+    deletBtn.setAttribute('class', 'button btn-delete');
     if(book.read == true){
-        readBtn.innerText = 'Read'
-        readBtn.style.backgroundColor = 'blue'
+        readBtn.innerText = 'Read';
+        readBtn.style.backgroundColor = 'blue';
     }else if (book.read == false){
-        readBtn.innerText = 'Unread'
-        readBtn.style.backgroundColor = 'red'
+        readBtn.innerText = 'Unread';
+        readBtn.style.backgroundColor = 'red';
     }
     
     readBtn.addEventListener('click', ()=>{
         if(book.read == true){
-            book.read = false
-            readBtn.innerText = 'Unread'
-            readBtn.style.backgroundColor = 'red'
+            book.read = false;
+            readBtn.innerText = 'Unread';
+            readBtn.style.backgroundColor = 'red';
         }else if(book.read == false){
             book.read = true;
-            readBtn.innerText = 'Read'
-            readBtn.style.backgroundColor = 'blue'
+            readBtn.innerText = 'Read';
+            readBtn.style.backgroundColor = 'blue';
         }
-        console.log('togel button')
-        setData()
+        setData();
     })
     deletBtn.innerText = 'delete';
-    div.setAttribute('class','book')
+    div.setAttribute('class','book');
     div.innerHTML = `<p>${book.title}</p><p>by: ${book.author}</p><p>Number of pages ${book.pages} pg</p>`;
     deletBtn.addEventListener('click', (e)=>{
         e.target.parentElement.remove();
-        myLibrary.splice(myLibrary.indexOf(book),1)
-        setData()
+        myLibrary.splice(myLibrary.indexOf(book),1);
+        setData();
     })
-    div.appendChild(readBtn)
+    div.appendChild(readBtn);
     div.appendChild(deletBtn);
-    display.appendChild(div)
+    display.appendChild(div);
 }
 
-const book1 = new Book ('aaa', 'bbbb', '120', true);
-const book2 = new Book ('ccc', 'dddd', '50', false);
-const book3 = new Book ('eee', 'ffff', '60', true);
-const book4 = new Book ('ggg', 'kkkk', '200', false);
-// myLibrary.push(book1)
-// myLibrary.push(book2)
-// myLibrary.push(book3)
-// myLibrary.push(book4)
-
 for(let i=0;i<myLibrary.length;i++){
-    displayBook(myLibrary[i])
+    displayBook(myLibrary[i]);
 }
