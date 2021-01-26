@@ -23,10 +23,16 @@ body{
 .button:hover{
     cursor: pointer;
 }
+.btn-container{
+    position: absolute;
+    right: 20px;
+    bottom: 20px;
+}
 #btn-new{
-    margin: 0 auto;
-    width: 150px;
-    display: block;
+    font-size: 40px;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
 }
 /* pop up form */
 #popup-form{
