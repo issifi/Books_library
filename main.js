@@ -57,6 +57,8 @@ function addBook() {
     const newBook = new Book( title, author, pages, readBook);
     myLibrary.push(newBook);
     setData();
+    totalBooks.textContent = countTotalBooks();
+    totalReadBooks.textContent = countReadBooks();
     displayBook(newBook);
 }
 // the book class constructor
