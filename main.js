@@ -4,7 +4,8 @@ const popupForm = document.querySelector('#popup-form');
 const closeForm = document.querySelector('#btn-exit');
 const addBookBtn = document.querySelector('#btn-add');
 const display = document.querySelector('#display');
-
+const totalBooks = document.querySelector('#total-books');
+const totalReadBooks = document.querySelector('#total-read');
 
 // adding event to the buttons
 // the new book button popup form
@@ -29,6 +30,14 @@ let myLibrary = [];
 if(localStorage.Library){
     getData();
 }
+function countTotalBooks(){
+    return myLibrary.length
+};
+function countReadBooks(){
+    return myLibrary.filter((value)=>{
+        return value.read == true;
+    }).length;
+};
 function addBook() {
     const title = document.querySelector('#book-title').value;
     const author = document.querySelector('#book-author').value;
@@ -84,6 +93,8 @@ function displayBook(book){
             readBtn.style.backgroundColor = 'blue';
         }
         setData();
+        totalBooks.textContent = countTotalBooks();
+        totalReadBooks.textContent = countReadBooks();
     })
     deletBtn.innerText = 'delete';
     div.setAttribute('class','book');
@@ -92,12 +103,15 @@ function displayBook(book){
         e.target.parentElement.remove();
         myLibrary.splice(myLibrary.indexOf(book),1);
         setData();
+        totalBooks.textContent = countTotalBooks();
+        totalReadBooks.textContent = countReadBooks();
     })
     div.appendChild(readBtn);
     div.appendChild(deletBtn);
     display.appendChild(div);
 }
-
+totalBooks.textContent = countTotalBooks();
+totalReadBooks.textContent = countReadBooks();
 for(let i=0;i<myLibrary.length;i++){
     displayBook(myLibrary[i]);
 }
