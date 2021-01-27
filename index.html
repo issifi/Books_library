@@ -4,13 +4,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Book Library</title>
+    <link rel="shortcut icon" href="img/books.ico" type="image/x-icon">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1 id="title">Books Library</h1>
+    <header>
+        <!-- <div class="stn-container">
+            <div class="ln1"></div>
+            <div class="ln2"></div>
+            <div class="ln3"></div>
+        </div> -->
+        <h1 id="title">Books Library</h1>
+    </header>
     <!-- the new book button to creat a new book -->
     <div class="btn-container">
-        <button id="btn-new" class="button">+</button>
+        <div id="btn-new" class="button">
+            <div class="plus pv"></div>
+            <div class="plus ph"></div>
+        </div>
     </div>
     <!-- popup form for the book information -->
     <div id="popup-form">
@@ -23,15 +34,33 @@
             <button type="button" id="btn-add" class="button">Add</button>
         </form>
     </div>
-
-    <div id="display">
-        <!-- <div class="book">
-            <h2>this is a long title book</h2>
-            <h2>author</h2>
-            <button class="button">Read</button>
-            <button class="btn-delete button">Delete</button>
-        </div> -->
-    </div>
+    <main class="flex-container">
+        <div id="display">
+            <!-- <div class="book">
+                <h2>this is a long title book</h2>
+                <h2>author</h2>
+                <button class="button">Read</button>
+                <button class="btn-delete button">Delete</button>
+            </div> -->
+        </div>
+        <div class="library-panel">
+            <div class="info">
+                <h2 class="info-title">information</h2>
+                <div class="table">
+                    <div class="item">
+                        <h3>Total Books</h3>
+                        <span id="total-books">100</span>
+                    </div>
+                    <div class="item">
+                        <h3>Completed Books</h3>
+                        <span id="total-read">100</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <!-- library panel information -->
+    
     <script src="main.js"></script>
 </body>
 </html>
