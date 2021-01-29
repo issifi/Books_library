@@ -74,7 +74,7 @@ header{
 /* pop up form */
 #popup-form{
     background-color: hsla(0, 0%, 0%, 0.61);
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     z-index: 1;
@@ -128,12 +128,12 @@ header{
 }
 /* display */
 #display{
-    margin: 20px 0;
+    margin: 20px 2px;
     display: grid;
-    grid-template-columns: repeat(auto-fit ,305px);
+    grid-template-columns: repeat(auto-fit , minmax(305px, 1fr) );
+    justify-items: center;
     grid-gap: 2px;
-    justify-content: center;
-    
+    grid-row-gap: 10px;
 }
 .book{
     border: 1px solid #000;
@@ -160,9 +160,14 @@ header{
     }
     .flex-container{
         display: flex;
+        flex-direction: row-reverse;
+        justify-content: flex-start;
     }
     #display{
         flex: 3;
+        grid-template-columns: repeat(auto-fit , minmax(305px, 1fr) );
+        margin: 20px;
+        justify-items: flex-start;
     }
     .library-panel{
         flex: 1;
