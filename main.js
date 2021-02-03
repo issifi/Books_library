@@ -112,6 +112,9 @@ function displayBook(book){
     div.appendChild(deletBtn);
     display.appendChild(div);
 }
+const newBook = new Book( 'HTML & CSS: Design and Build Web Sites', 'Jon Duckett', 514, true);
+    myLibrary.push(newBook);
+
 totalBooks.textContent = countTotalBooks();
 totalReadBooks.textContent = countReadBooks();
 for(let i=0;i<myLibrary.length;i++){
